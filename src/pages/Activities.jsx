@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from '../components/Navbar';
 import { Footer } from "../components/Footer";
 
@@ -6,6 +6,9 @@ import { Footer } from "../components/Footer";
 
 const Activities = () => {
 
+    useEffect(() => {
+        document.title = "Activities - The Surfer";
+    }, []);
 
     return (
         <div>

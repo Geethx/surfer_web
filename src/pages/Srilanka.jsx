@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/srilanka/Header'
 import Perfect from '../components/country/Perfect'
 import ImageCard from '../components/country/ImageCard'
@@ -15,6 +15,10 @@ import Follow from '../components/country/Follow'
 import {Footer} from '../components/Footer'
 
 const Srilanka = () => {
+  useEffect(() => {
+    document.title = "Sri Lanka - The Surfer";
+  }, []);
+  
   return (
     <div>
         <Header />

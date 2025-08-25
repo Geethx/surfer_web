@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import SurfingJourney from "../components/SurfingJourney";
@@ -22,6 +22,10 @@ import Navbar from "../components/Navbar";
 
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "The Surfer - Surf Camps & Lessons";
+  }, []);
+
   const cards = {
     card1: {
       images: [

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Footer } from '../components/Footer';
@@ -96,6 +96,10 @@ const PackageCard = ({ image, title, subtitle, description, features, index }) =
 };
 
 const SurfLessonPackages = () => {
+  useEffect(() => {
+    document.title = "Rates - The Surfer";
+  }, []);
+
   const packages = [
     {
       image: "/pkg1.jpg",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/beach_camp/Header'
 import LifeAtSurfCamp from '../components/beach_camp/Life'
 import ImageCard from '../components/beach_camp/ImageCard'
@@ -11,6 +11,10 @@ import Package from '../components/beach_camp/Package'
 import { motion as Motion } from 'framer-motion'
 
 const BeachCamp = () => {
+  useEffect(() => {
+    document.title = "Beach Camp - The Surfer";
+  }, []);
+  
   return (
     <div>
       <Header />

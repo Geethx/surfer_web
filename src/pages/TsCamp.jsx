@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion as Motion } from 'framer-motion'
 import Header from '../components/ts_camp/Header'
 import LifeAtSurfCamp from '../components/ts_camp/Life'
@@ -12,6 +12,10 @@ import Map from '../components/contact/Map'
 import Package from '../components/ts_camp/Package'
 
 const TsCamp = () => {
+  useEffect(() => {
+    document.title = "TS2 Camp - The Surfer";
+  }, []);
+  
   return (
     <div>
       <Header />

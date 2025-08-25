@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/morocco/Header'
 import Perfect from '../components/morocco/Perfect'
 import ImageCard from '../components/country/ImageCard'
@@ -16,6 +16,10 @@ import Follow from '../components/country/Follow'
 import {Footer} from '../components/Footer'
 
 const Morocco = () => {
+  useEffect(() => {
+    document.title = "Morocco - The Surfer";
+  }, []);
+  
   return (
     <div>
         <Header />

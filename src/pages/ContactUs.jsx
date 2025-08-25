@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/contact/Header'
 import GetInTouch from '../components/contact/GetInTouch'
 import Form from '../components/contact/form'
@@ -9,6 +9,10 @@ import Policy from '../components/contact/Policy'
 import {Footer} from '../components/Footer'
 
 const ContactUs = () => {
+  useEffect(() => {
+    document.title = "Contact - The Surfer";
+  }, []);
+  
   return (
     <div>
         <Header />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from '../components/Navbar';
 import { Footer } from "../components/Footer";
 import FAQ from "../components/FAQ";
@@ -7,6 +7,9 @@ import FAQ from "../components/FAQ";
 
 const Faq = () => {
 
+    useEffect(() => {
+        document.title = "FAQ - The Surfer";
+    }, []);
 
     return (
         <div>
