@@ -85,111 +85,94 @@ const Navbar = () => {
 
             {isDestinationHovered && (
               <div
-                className={`absolute top-full left-0 right-0 mt-4 w-screen -ml-[50vw] left-1/2 backdrop-blur-2xl p-8 border border-opacity-20 shadow-2xl transition-all duration-300 ease-in-out z-50 ${isScrolled
-                  ? 'bg-white/95 border-gray-200'
-                  : 'bg-white/10 border-white/30'
+                className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 w-[900px] backdrop-blur-2xl p-8 border border-opacity-20 shadow-2xl transition-all duration-300 ease-in-out z-50 ${isScrolled
+                  ? 'bg-white/95 border-gray-200 rounded-3xl'
+                  : 'bg-white/10 border-white/30 rounded-3xl'
                   }`}
                 style={{
                   backdropFilter: 'blur(20px)',
                   WebkitBackdropFilter: 'blur(20px)',
                 }}
               >
-                <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                  <div className="flex gap-8 h-full max-w-6xl mx-auto">
-                    <div className="w-1/3 pr-6">
-                      <div className={`mb-6 pb-4 ${isScrolled ? 'border-b border-gray-200' : 'border-b border-white/20'
-                        }`}>
-                        <h3 className={`text-lg font-bold mb-2 ${isScrolled ? 'text-gray-800' : 'text-white'
-                          }`}>COUNTRIES</h3>
+                <div className="flex gap-8 h-full">
+                  <div className="w-1/3 pr-6">
+                    <div className={`mb-6 pb-4 ${isScrolled ? 'border-b border-gray-200' : 'border-b border-white/20'
+                      }`}>
+                      <h3 className={`text-lg font-bold mb-2 ${isScrolled ? 'text-gray-800' : 'text-white'
+                        }`}>COUNTRIES</h3>
 
-                        <div className="space-y-2">
-                          {countries.map((country) => (
-                            <div
-                              key={country.id}
-                              className={`group cursor-pointer rounded-xl transition-all duration-300 hover:scale-[1.02] ${selectedCountry === country.id
-                                ? isScrolled
-                                  ? 'bg-cyan-50 border border-cyan-200'
-                                  : 'bg-white/20 border border-white/30'
-                                : isScrolled
-                                  ? 'hover:bg-gray-50'
-                                  : 'hover:bg-white/10'
-                                }`}
-                              onMouseEnter={() => setSelectedCountry(country.id)}
-                            >
-                              <a href={country.link} className="text-sm font-medium transition-colors hover:text-cyan-500">
-                                <div className="flex items-center p-3 gap-3">
+                      <div className="space-y-2">
+                        {countries.map((country) => (
+                          <div
+                            key={country.id}
+                            className={`group cursor-pointer rounded-xl transition-all duration-300 hover:scale-[1.02] ${selectedCountry === country.id
+                              ? isScrolled
+                                ? 'bg-cyan-50 border border-cyan-200'
+                                : 'bg-white/20 border border-white/30'
+                              : isScrolled
+                                ? 'hover:bg-gray-50'
+                                : 'hover:bg-white/10'
+                              }`}
+                            onMouseEnter={() => setSelectedCountry(country.id)}
+                          >
+                            <a href={country.link} className="text-sm font-medium transition-colors hover:text-cyan-500">
+                              <div className="flex items-center p-3 gap-3">
 
-                                  <img
-                                    src={country.image}
-                                    alt={country.name}
-                                    className="w-12 h-12 rounded-lg object-cover"
-                                  />
-                                  <div className="flex-1 flex items-center justify-between">
+                                <img
+                                  src={country.image}
+                                  alt={country.name}
+                                  className="w-12 h-12 rounded-lg object-cover"
+                                />
+                                <div className="flex-1 flex items-center justify-between">
 
-                                    <h4 className={`text-sm font-medium transition-colors ${selectedCountry === country.id
-                                      ? isScrolled
-                                        ? 'text-cyan-700'
-                                        : 'text-cyan-300'
-                                      : isScrolled
-                                        ? 'text-gray-800 group-hover:text-cyan-600'
-                                        : 'text-white group-hover:text-cyan-300'
-                                      }`}>
-                                      {country.name}
-                                    </h4>
-                                    <span className={`text-lg transition-colors ${selectedCountry === country.id
-                                      ? isScrolled
-                                        ? 'text-cyan-600'
-                                        : 'text-cyan-300'
-                                      : isScrolled
-                                        ? 'text-gray-400 group-hover:text-cyan-600'
-                                        : 'text-white/60 group-hover:text-cyan-300'
-                                      }`}>
-                                      →
-                                    </span>
-
-                                  </div>
+                                  <h4 className={`text-sm font-medium transition-colors ${selectedCountry === country.id
+                                    ? isScrolled
+                                      ? 'text-cyan-700'
+                                      : 'text-cyan-300'
+                                    : isScrolled
+                                      ? 'text-gray-800 group-hover:text-cyan-600'
+                                      : 'text-white group-hover:text-cyan-300'
+                                    }`}>
+                                    {country.name}
+                                  </h4>
+                                  <span className={`text-lg transition-colors ${selectedCountry === country.id
+                                    ? isScrolled
+                                      ? 'text-cyan-600'
+                                      : 'text-cyan-300'
+                                    : isScrolled
+                                      ? 'text-gray-400 group-hover:text-cyan-600'
+                                      : 'text-white/60 group-hover:text-cyan-300'
+                                    }`}>
+                                    →
+                                  </span>
 
                                 </div>
-                              </a>
-                            </div>
-                          ))}
-                        </div>
+
+                              </div>
+                            </a>
+                          </div>
+                        ))}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="w-2/3">
-                      <div className="h-full">
-                        {surfCamps[selectedCountry]?.originals.length > 0 && (
-                          <>
-                            <div className={`flex items-center gap-3 mb-4 ${isScrolled ? 'text-gray-800' : 'text-white'
-                              }`}>
-                              
-                              <div>
-                                <h4 className={`text-sm font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'
-                                  }`}>THE SURFER ORIGINAL CAMPS</h4>
-                              </div>
+                  <div className="w-2/3">
+                    <div className="h-full">
+                      {surfCamps[selectedCountry]?.originals.length > 0 && (
+                        <>
+                          <div className={`flex items-center gap-3 mb-4 ${isScrolled ? 'text-gray-800' : 'text-white'
+                            }`}>
+                            <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                              <span className="text-white text-sm font-bold">🏄</span>
                             </div>
-
-                            <div className="space-y-3 mb-6">
-                              {surfCamps[selectedCountry]?.originals.map((camp, index) => (
-                                <p key={index} className={`text-sm cursor-pointer transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'
-                                  }`}>
-                                  <a href={camp.link}>
-                                    {camp.name}
-                                  </a>
-                                </p>
-                              ))}
+                            <div>
+                              <h4 className={`text-sm font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'
+                                }`}>THE SURFER ORIGINAL CAMPS</h4>
                             </div>
-                          </>
-                        )}
+                          </div>
 
-                        <div className={`${surfCamps[selectedCountry]?.originals.length > 0 ? 'border-t pt-4' : ''} ${isScrolled ? 'border-gray-200' : 'border-white/20'
-                          }`}>
-                          <h4 className={`text-sm font-semibold mb-3 ${isScrolled ? 'text-gray-800' : 'text-white'
-                            }`}>THE SURFER PARTNERED CAMP</h4>
-
-                          <div className="space-y-2">
-                            {surfCamps[selectedCountry]?.partner.map((camp, index) => (
+                          <div className="space-y-3 mb-6">
+                            {surfCamps[selectedCountry]?.originals.map((camp, index) => (
                               <p key={index} className={`text-sm cursor-pointer transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'
                                 }`}>
                                 <a href={camp.link}>
@@ -198,6 +181,23 @@ const Navbar = () => {
                               </p>
                             ))}
                           </div>
+                        </>
+                      )}
+
+                      <div className={`${surfCamps[selectedCountry]?.originals.length > 0 ? 'border-t pt-4' : ''} ${isScrolled ? 'border-gray-200' : 'border-white/20'
+                        }`}>
+                        <h4 className={`text-sm font-semibold mb-3 ${isScrolled ? 'text-gray-800' : 'text-white'
+                          }`}>THE SURFER PARTNERED CAMP</h4>
+
+                        <div className="space-y-2">
+                          {surfCamps[selectedCountry]?.partner.map((camp, index) => (
+                            <p key={index} className={`text-sm cursor-pointer transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'
+                              }`}>
+                              <a href={camp.link}>
+                                {camp.name}
+                              </a>
+                            </p>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -265,12 +265,12 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu with Animation - IMPROVED RESPONSIVENESS */}
-      <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className={`w-72 mx-auto rounded-3xl mt-0 transform transition-all duration-500 ease-in-out ${isScrolled
           ? 'bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl'
           : 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl'
           }`}>
-          <div className='px-4 py-8 max-h-[75vh] overflow-y-auto'>
+          <div className='px-4 py-8'>
             <ul className='flex flex-col gap-4 text-center'>
               <a
                 href="/"
