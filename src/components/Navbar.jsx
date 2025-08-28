@@ -53,7 +53,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
+    <div className={`fixed top-0 left-0 w-full z-[70] transition-all duration-300 ${isScrolled
       ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20'
       : 'bg-transparent'
       }`}>
@@ -68,8 +68,8 @@ const Navbar = () => {
         </a>
         <ul className='hidden md:flex gap-4 lg:gap-7 text-sm lg:text-base relative'>
           <a href="/" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
-            location.pathname === '/'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
+            location.pathname === '/' && !isDestinationHovered
+              ? 'text-cyan-500 font-bold'
               : isScrolled
                 ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
                 : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
@@ -78,22 +78,37 @@ const Navbar = () => {
             className="relative"
             onClick={() => setIsDestinationHovered(!isDestinationHovered)}
           >
-            <p className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            <p className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
+              isDestinationHovered
+                ? 'text-cyan-500 font-bold'
+                : isScrolled
+                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
               }`}>DESTINATION</p>
 
             {isDestinationHovered && (
-              <div
-                className={`absolute top-full left-0 right-0 mt-4 w-screen -ml-[50vw] left-1/2 backdrop-blur-2xl p-8 border border-opacity-20 shadow-2xl transition-all duration-300 ease-in-out z-50 ${isScrolled
-                  ? 'bg-white/95 border-gray-200'
-                  : 'bg-white/10 border-white/30'
-                  }`}
-                style={{
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                }}
-              >
+              <>
+                {/* Blurred Background Overlay - Full page blur */}
+                <div 
+                  className="fixed inset-0 bg-black/30 backdrop-blur-md z-40"
+                  onClick={() => setIsDestinationHovered(false)}
+                  style={{
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                  }}
+                />
+                
+                {/* Destination Dropdown */}
+                <div
+                  className={`absolute top-full left-0 right-0 mt-4 w-screen -ml-[50vw] left-1/2 backdrop-blur-2xl p-8 border border-opacity-20 shadow-2xl transition-all duration-300 ease-in-out z-[80] ${isScrolled
+                    ? 'bg-white/95 border-gray-200'
+                    : 'bg-white/10 border-white/30'
+                    }`}
+                  style={{
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                  }}
+                >
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                   <div className="flex gap-8 h-full max-w-6xl mx-auto">
                     <div className="w-1/3 pr-6">
@@ -204,40 +219,41 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
+              </>
             )}
           </div>
           
           <a href="/activities" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
-            location.pathname === '/activities'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
+            location.pathname === '/activities' && !isDestinationHovered
+              ? 'text-cyan-500 font-bold'
               : isScrolled
                 ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
                 : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
           }`}>ACTIVITIES</a>
           <a href="/rates" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
-            location.pathname === '/rates'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
+            location.pathname === '/rates' && !isDestinationHovered
+              ? 'text-cyan-500 font-bold'
               : isScrolled
                 ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
                 : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
           }`}>RATES</a>
           <a href="/faq" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
-            location.pathname === '/faq'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
+            location.pathname === '/faq' && !isDestinationHovered
+              ? 'text-cyan-500 font-bold'
               : isScrolled
                 ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
                 : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
           }`}>FAQ</a>
           <a href="/blogs" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
-            location.pathname === '/blogs'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
+            location.pathname === '/blogs' && !isDestinationHovered
+              ? 'text-cyan-500 font-bold'
               : isScrolled
                 ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
                 : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
           }`}>BLOGS</a>
           <a href="/contact" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
-            location.pathname === '/contact'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
+            location.pathname === '/contact' && !isDestinationHovered
+              ? 'text-cyan-500 font-bold'
               : isScrolled
                 ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
                 : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
@@ -277,7 +293,7 @@ const Navbar = () => {
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                  }${location.pathname === '/' && !isMobileDestinationOpen ? ' text-cyan-500 font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 HOME
@@ -345,7 +361,7 @@ const Navbar = () => {
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                  }${location.pathname === '/activities' && !isMobileDestinationOpen ? ' text-cyan-500 font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 ACTIVITIES
@@ -356,7 +372,7 @@ const Navbar = () => {
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                  }${location.pathname === '/rates' && !isMobileDestinationOpen ? ' text-cyan-500 font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 RATES
@@ -367,7 +383,7 @@ const Navbar = () => {
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
+                  }${location.pathname === '/faq' && !isMobileDestinationOpen ? ' text-cyan-500 font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
@@ -378,7 +394,7 @@ const Navbar = () => {
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
+                  }${location.pathname === '/blogs' && !isMobileDestinationOpen ? ' text-cyan-500 font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 BLOGS
@@ -389,7 +405,7 @@ const Navbar = () => {
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
+                  }${location.pathname === '/contact' && !isMobileDestinationOpen ? ' text-cyan-500 font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 CONTACT
