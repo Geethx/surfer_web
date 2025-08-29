@@ -99,36 +99,36 @@ const Reviews = () => {
             <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 mt-18 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-2 max-w-6xl mx-auto">
                 {/* TripAdvisor badges row */}
                 <div className="flex flex-col items-center justify-center pb-3 lg:pb-0 px-4 py-1">
-                    <div className="flex flex-row gap-2 items-end justify-center whitespace-nowrap">
+                    <div className="grid grid-cols-2 lg:flex lg:flex-row gap-2 lg:gap-4 items-center justify-center whitespace-nowrap">
                         {/* Card style for each badge */}
-                        <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center  hover:border-white-500 transition-all duration-300">
-                            <img src="/2018.png" alt="2018 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
+                        <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
+                            <img src="/2018.png" alt="2018 TripAdvisor" className="w-24 h-24 lg:w-38 lg:h-38 object-contain hover:scale-105 transition-transform duration-300" />
                         </div>
                         <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
-                            <img src="/2021.png" alt="2021 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
+                            <img src="/2021.png" alt="2021 TripAdvisor" className="w-24 h-24 lg:w-38 lg:h-38 object-contain hover:scale-105 transition-transform duration-300" />
                         </div>
                         <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
-                            <img src="/2022.png" alt="2022 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
+                            <img src="/2022.png" alt="2022 TripAdvisor" className="w-24 h-24 lg:w-38 lg:h-38 object-contain hover:scale-105 transition-transform duration-300" />
                         </div>
                         <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
-                            <img src="/2023.png" alt="2023 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
+                            <img src="/2023.png" alt="2023 TripAdvisor" className="w-24 h-24 lg:w-38 lg:h-38 object-contain hover:scale-105 transition-transform duration-300" />
                         </div>
-                        <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
-                            <img src="/2024.png" alt="2024 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
+                        <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300 col-span-2 lg:col-span-1 justify-self-center">
+                            <img src="/2024.png" alt="2024 TripAdvisor" className="w-24 h-24 lg:w-38 lg:h-38 object-contain hover:scale-105 transition-transform duration-300" />
                         </div>
                     </div>
                     <h2 className="font-bold text-base xs:text-lg sm:text-xl md:text-2xl mt-3 mb-2 text-center text-neutral-400 leading-tight max-w-xs sm:max-w-md md:max-w-lg">5-TIME TRAVELER’S CHOICE AWARD</h2>
                 </div>
                 
                 {/* Google and TripAdvisor review badges */}
-                <div className="flex flex-col gap-8 items-center justify-center max-w-xs min-w-[220px] mb-3 lg:mb-0">
-                    <div className="w-full bg-white-100 border-white-800 p-3 shadow-md flex items-center gap-3 rounded-lg hover:border-white-500 hover:scale-105 transition-all duration-300 cursor-pointer">
-                        <img src="/google.png" alt="Google" className="w-10 h-10 drop-shadow-md transition-transform duration-300" />
-                        <span className="font-bold text-lg text-neutral-400">Google Review 1000+</span>
+                <div className="grid grid-cols-2 lg:flex lg:flex-col gap-3 lg:gap-8 items-center justify-center max-w-md lg:max-w-xs lg:min-w-[220px] mb-3 lg:mb-0">
+                    <div className="w-full bg-white-100 border-white-800 p-2 lg:p-3 shadow-md flex flex-col lg:flex-row items-center gap-1 lg:gap-3 rounded-lg hover:border-white-500 hover:scale-105 transition-all duration-300 cursor-pointer">
+                        <img src="/google.png" alt="Google" className="w-6 lg:w-10 h-6 lg:h-10 drop-shadow-md transition-transform duration-300" />
+                        <span className="font-bold text-xs lg:text-lg text-neutral-400 text-center lg:text-left">Google Review 1000+</span>
                     </div>
-                    <div className="w-full bg-white-100 border-white-800 p-3 shadow-md flex items-center gap-3 rounded-lg hover:border-white-500 hover:scale-105 transition-all duration-300 cursor-pointer">
-                        <img src="/tripadvisor.png" alt="TripAdvisor" className="w-10 h-10 drop-shadow-md transition-transform duration-300" />
-                        <span className="font-bold text-lg text-neutral-400">TripAdvisor No 1</span>
+                    <div className="w-full bg-white-100 border-white-800 p-2 lg:p-3 shadow-md flex flex-col lg:flex-row items-center gap-1 lg:gap-3 rounded-lg hover:border-white-500 hover:scale-105 transition-all duration-300 cursor-pointer">
+                        <img src="/tripadvisor.png" alt="TripAdvisor" className="w-6 lg:w-10 h-6 lg:h-10 drop-shadow-md transition-transform duration-300" />
+                        <span className="font-bold text-xs lg:text-lg text-neutral-400 text-center lg:text-left">TripAdvisor No 1</span>
                     </div>
                 </div>
             </div>
