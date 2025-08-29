@@ -49,7 +49,7 @@ const SurfingJourney = () => {
             onClick={() => window.location.href = '/beach-camp'}
           >
             <span className="text-sm sm:text-base font-semibold">
-              Check Beach Camp Package & Rates
+              Check Package & Rates
             </span>
           </motion.div>
         </div>
